@@ -149,7 +149,7 @@ print sum 10, 20
 a b c "a", "b", "c"
 ```
 
-In order to avoid ambiguity in when calling functions, parentheses can also be
+In order to avoid ambiguity when calling functions, parentheses can also be
 used to surround the arguments. This is required here in order to make sure the
 right arguments get sent to the right functions.
 
@@ -195,7 +195,8 @@ func = (num) => @value + num
 
 It is possible to provide default values for the arguments of a function. An
 argument is determined to be empty if its value is `nil`. Any `nil` arguments
-that have a default value will be replace before the body of the function is run.
+that have a default value will be replaced before the body of the function is
+run.
 
 ```moon
 my_function = (name="something", height=100) ->
@@ -237,7 +238,7 @@ function call takes precedence over any following expressions. No other
 arguments can be passed to the function when it is called this way.
 
 Where there is a space following a variable and a string literal, the function
-call acts as show above. The string literal belongs to any following
+call acts as shown above. The string literal belongs to any following
 expressions (if they exist), which serves as the argument list.
 
 ```moon
@@ -452,8 +453,8 @@ evens = [i for i=1,100 when i % 2 == 0]
 
 ### Table Comprehensions
 
-The syntax for table comprehensions is very similar, only differing by using `{` and
-`}` and taking two values from each iteration.
+The syntax for table comprehensions is very similar, only differing by using `{`
+and `}` and taking two values from each iteration.
 
 This example makes a copy of the table`thing`:
 
@@ -610,7 +611,7 @@ while i > 0
 while running == true do my_function!
 ```
 
-Like for loops, the while loop can also be used an expression. Additionally,
+Like for loops, the while loop can also be used as an expression. Additionally,
 for a function to return the accumulated value of a while loop, the statement
 must be explicitly returned.
 
@@ -691,9 +692,9 @@ print "You're lucky!" unless math.random! > 0.1
 
 `if` and `elseif` blocks can take an assignment in place of a conditional
 expression. Upon evaluating the conditional, the assignment will take place and
-the value that was assigned to will be used as the conditional expression. The
-assigned variable is only in scope for the body of the conditional, meaning it
-is never available if the value is not truthy.
+the value that was assigned to it will be used as the conditional expression.
+The assigned variable is only in scope for the body of the conditional, meaning
+it is never available if the value is not truthy.
 
 ```moon
 if user = database.find_user "moon"
@@ -896,12 +897,12 @@ argument. (As seen in the [inheritance](#inheritance) example above)
 When `super` is used as a normal value, it is a reference to the parent class
 object.
 
-It can be accessed like any of object in order to retrieve values in the
-parent class that might have been shadowed by the child class.
+It can be accessed like any object in order to retrieve values in the parent
+class that might have been shadowed by the child class.
 
-When the <code>\\</code> calling operator is used with `super`, `self` is inserted as the
-first argument instead of the value of `super` itself. When using `.` to
-retrieve a function, the raw function is returned.
+When the <code>\\</code> calling operator is used with `super`, `self` is
+inserted as the first argument instead of the value of `super` itself. When
+using `.` to retrieve a function, the raw function is returned.
 
 A few examples of using `super` in different ways:
 
@@ -956,8 +957,8 @@ the *base* must explicitly be changed. See the `__base` field below.
 
 The class object has a couple special properties:
 
-The name of the class as when it was declared is stored as a string in the
-`__name` field of the class object.
+The name of the class when it was declared is stored as a string in the `__name`
+field of the class object.
 
 ```moon
 print BackPack.__name -- prints Backpack
@@ -1042,8 +1043,8 @@ class MoreThings
 
 ### `@` and `@@` Values
 
-When `@` and `@@` are prefixed in front of a name they represent, respectively,
-that name accessed in `self` and `self.__class`.
+When `@` and `@@` prefix a name they represent, that name can be accessed via `self`
+and `self.__class`, respectively.
 
 If they are used all by themselves, they are aliases for `self` and
 `self.__class`.
@@ -1221,7 +1222,7 @@ local variables by their name. The import statement lets us accomplish this:
 import insert from table
 ```
 
-The multiple names can be given, each separated by a comma:
+Multiple names can be given, each separated by a comma:
 
 ```moon
 import C, Ct, Cmt from lpeg
@@ -1264,11 +1265,11 @@ functions and setting a series of properties immediately after creating it.
 This results in repeating the name of the object multiple times in code, adding
 unnecessary noise. A common solution to this is to pass a table in as an
 argument which contains a collection of keys and values to overwrite. The
-downside to this is that the constructor of this object must support this form.
+downside to this is that the constructor of the object must support this form.
 
-The `with` block helps to alleviate this. Within a `with` block we can use a
-special statements that begin with either `.` or <code>\\</code> which represent
-those operations applied to the object we are using `with` on.
+The `with` block presents another solution. Within a `with` block we can use
+special statements that begin with either `.` or <code>\\</code>.  This syntax
+represents those operations applied to the object we are using `with` on.
 
 For example, we work with a newly created object:
 
@@ -1320,7 +1321,7 @@ do
 print var -- nil here
 ```
 
-MoonScript's `do` can also be used an expression . Allowing you to combine
+MoonScript's `do` can also be used as an expression. It allows you to combine
 multiple lines into one. The result of the `do` expression is the last
 statement in its body.
 
@@ -1405,7 +1406,7 @@ a few lines. A slightly more complicated example:
 } = obj2
 ```
 
-It's common to extract values from at table and assign them the local variables
+It's common to extract values from a table and assign them to local variables
 that have the same name as the key. In order to avoid repetition we can use the
 `:` prefix operator:
 
@@ -1500,8 +1501,8 @@ In `my_func`, we've overwritten the value of `i` mistakenly. In this example it
 is quite obvious, but consider a large, or foreign code base where it isn't
 clear what names have already been declared.
 
-It would be helpful to say which variables from the enclosing scope we intend
-on change, in order to prevent us from changing others by accident.
+It is helpful to say which variables from the enclosing scope we intend
+to change. This will help prevent us from changing others by accident.
 
 The `using` keyword lets us do that. `using nil` makes sure that no closed
 variables are overwritten in assignment. The `using` clause is placed after the
